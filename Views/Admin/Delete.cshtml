@@ -1,4 +1,4 @@
-﻿@model List<Quizely.Models.Game>
+﻿@model List<Quizely.Models.IQGame>
 @{
     ViewBag.Title = "Delete";
 }
@@ -20,7 +20,7 @@
             <tr>
                 <td>@v.GameName</td>
                 
-                <td><a href="~/Admin/DeleteConfirm/@v.GId" class="more">Delete</a></td>
+                <td><a href="~/Admin/DeleteConfirm/@v.GameId" class="more">Delete</a></td>
             </tr>
         }
     }
