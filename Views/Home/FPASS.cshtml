@@ -1,0 +1,36 @@
+﻿@model Quizely.Models.User
+@{
+    ViewBag.Title = "login";
+}
+
+<div id="body">
+			<div class="header">
+				<div class="contact">
+                <h1>FORGOT PASSWORD</h1>@using (Html.BeginForm("getpass" , "Home" ,FormMethod.Post, new { enctype="multipart/form-data"}))
+                              {
+        
+                        <fieldset>
+                        <div class="form">
+                            <h5>ENTER USER NAME</h5>
+                            @Html.TextBoxFor(model => model.UserName, new { type = "text", @placeholder = "USER NAME", @class = "form-control" , color ="black" })
+                            
+                            <h5>SELECT SECRET QUESTION</h5>
+                            <select id="secretquestion" name="SecretQuestion">
+                
+                            <option>Favourite Book</option>
+                            <option>Favourite Anime</option>
+                            <option>Favourite Color</option>
+                        </select>
+                        <h5>GIVE ANSWER</h5>
+                        @Html.TextBoxFor(model => model.SAns)
+                       
+                    <input type="submit" value="FIND" id="submit" />
+            </fieldset>
+                    
+            }
+                    
+						
+					
+				</div>
+          </div>
+    </div>

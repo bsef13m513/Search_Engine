@@ -1,0 +1,46 @@
+﻿@model Quizely.Models.Game
+@{
+    ViewBag.Title = "AddGame";
+}
+
+<h1>ADD GAME</h1>
+<div id="body" class="signup">
+			<div class="header">
+				<div class="contact">
+                   
+					<h1>SIGN UP</h1>
+		@using (Html.BeginForm("AddQuiz" , "Admin" , FormMethod.Post, new { enctype="multipart/form-data"}))
+  {
+        
+        <fieldset>
+        <div class="form">
+                    <h5>Game ID</h5>
+                    @Html.HiddenFor(model => model.GameId)
+                    
+
+                    <h5>Game Name</h5>
+                    @Html.TextBoxFor(model => model.GameName)
+                    @Html.ValidationMessageFor(model => model.GameName)
+           
+                    <h5>Category</h5>
+                   <select id="catagory" name="catagory">
+                   <option>PERSONALITY</option>
+                   <option>IQ</option>
+                   </select>
+            
+                    <h5>Description</h5>
+                    @Html.TextBoxFor(model => model.Description)
+                    @Html.ValidationMessageFor(model => model.Description)
+                     
+                    Upload Image: <input type="file" name="image" id ="img" />
+                    @Html.ValidationMessageFor(model => model.image)
+         </div>
+             <input class="submit" type="submit" name="submit" id="submit" value="ADD" />
+         </fieldset>
+
+           
+  }
+                   
+                    </div>
+                </div>
+    </div>

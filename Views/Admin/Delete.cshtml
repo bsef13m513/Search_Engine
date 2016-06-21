@@ -1,0 +1,34 @@
+﻿@model List<Quizely.Models.IQGame>
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div id="page">
+    <div id="body" class="signup">
+			<div class="header">
+				<div class ="contact">
+                    
+                   
+					<h1>DELETE QUIZ</h1>
+ <table>   
+      <tr>
+        <th>GAME NAME</th>   
+       </tr>  
+	@{
+        foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.GameName</td>
+                
+                <td><a href="~/Admin/DeleteConfirm/@v.GId" class="more">Delete</a></td>
+            </tr>
+        }
+    }
+</table>
+                   
+        </div>
+                 <a href="~/Admin/AdminPanel" class="more">BACK TO PANEL</a>
+                </div>
+
+    </div>
+</div>

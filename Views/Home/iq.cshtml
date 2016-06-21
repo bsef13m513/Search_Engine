@@ -1,0 +1,85 @@
+﻿@model List<Quizely.Models.Game>
+@{
+    ViewBag.Title = "iq";
+}
+@{ var session = HttpContext.Current.Session; }
+ 
+<html>
+    <body>
+      <div id="page">
+         <div id="body" class="iq">
+			<div class="header">
+               
+
+      
+
+         <div>
+					<h1>IQ GAMES</h1>
+					<ul>
+                       @{
+                          
+                              
+                           foreach(var v in Model)
+                           {
+                               if(v.Category == "IQ")
+                               {
+                                   <li>
+							    <a href=""><img src="~/images/@v.image" alt=""></a>
+							    <div>
+								    <h1>@v.GameName</h1>
+								    <p>@v.Description</p>
+								     @{
+                                        if(@session["User Name"] != null)
+                                        {
+                                            <a href="LoadGamePage/@v.GameId" class="more">PLAY GAME</a>
+                                        }
+                                       else
+                                       {
+                                       } 
+                                       }
+							    </div>
+						       </li>
+                               }
+                           }
+                        }
+						
+				 </ul>
+			</div>
+
+
+			</div>
+
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+            <div class="footer">
+				<div>
+					<ul>
+						<li>
+							<h1>CONTACT US</h1>
+							<img src="~/images/contactus.jpg" alt="">
+						</li>
+						<li>
+							<h1>WAY TO GO</h1>
+							<ul>
+								<li>
+									<a href=""><img src="~/images/SIGNUP.jpg" alt=""></a>
+									<h1>SIGN UP HERE</h1>
+									<span>JUST ONE THIBG TO GO ON AHEAD</span>
+									<a href="~/Home/signup" class="more">SIGN UP</a>
+								</li>
+								<li>
+									<a href="#"><img src="~/images/fun.png" alt=""></a>
+									<h1>HVE FUN WITH US</h1>
+									<span>^_^</span>
+									
+									
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+         </div>
+    </div>
+          </div>
+        </body>
+</html>

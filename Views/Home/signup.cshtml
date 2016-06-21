@@ -1,0 +1,130 @@
+﻿@model Quizely.Models.User 
+@{
+    ViewBag.Title = "signup";
+ }
+<link rel="stylesheet" href="~/css/style.css" type="text/css">
+
+  
+    
+<div id="body" class="signup">
+			<div class="header">
+				<div class="contact">
+                   
+					<h1>SIGN UP</h1>
+		@using (Html.BeginForm("signup" , "Home" ,FormMethod.Post, new { enctype="multipart/form-data"})){
+        
+        <fieldset>
+        <div class="form">
+            <h5>UserName</h5>
+            @Html.TextBoxFor(model => model.UserName, new { type = "text", @placeholder = "USER NAME", id="UserName"  })
+            @Html.ValidationMessageFor(model => model.UserName)
+
+            <input type="button" id="check" value="Availability"  class="submit"/>
+            <div id="result"></div>
+            @Scripts.Render("~/bundles/jquery")
+
+            <script>
+                 $(document).ready(function ()
+                 {
+                     $('#result').hide();
+                     $('#submit').hide();
+
+                    
+                     $('#check').click(function()
+
+                     {
+	
+                                 var userName = $('#UserName').val();
+
+                                 //alert('User Name ='+ userName);
+                                 if (userName != "")
+                                 {
+                                     $('#result').hide();
+
+                                     $.getJSON("/Home/CheckUserName?UserName=" + userName, function (data)
+                                     {
+
+                                         if (data)
+                                         {
+                                             $('#result').text("User already exists in database");
+                                             $('#result').show();
+                                             $('#result').mouseenter(function () {
+                                                 $('#result').hide();
+                                              
+                                             });
+
+                                         }
+                                         else
+                                         {
+                                             $('#result').text("USER NAME Assigned Continue with remaining feilds");
+
+                                             $('#result').show();
+                                             $('#result').mouseleave(function () {
+                                                 
+                                                 $('#UserName').hide();
+                                                 $('#check').hide();
+                                                 $('#submit').show();
+                                             });
+                                         }
+                                     });
+                                 }
+                                 else
+                                 {
+                                     $('#result').text("Enter some value to proceed");
+                                     $('#result').show();
+                                     $('#result').mouseleave(function () {
+                                         $('#result').hide();
+                                     });
+                                 }
+                             
+                     });
+
+                 });
+
+    </script>
+
+
+            <h5>Password</h5>
+            @Html.TextBoxFor(model => model.Password, new {  type = "password", @placeholder = "PASSWORD", @id = "pwd"  })
+            @Html.ValidationMessageFor(model => model.Password)
+            
+            <h5>First Name</h5>
+            @Html.TextBoxFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+            
+            <h5>Last Name</h5>
+            @Html.TextBoxFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+           
+             <h5>Email Address</h5>
+            @Html.TextBoxFor(model => model.Email, new { @placeholder = "Email"})
+            @Html.ValidationMessageFor(model => model.Email)
+
+            <h5>Select Secret Question</h5>
+            <select id="secretquestion" name="SecretQuestion">
+               <option>Favourite Book</option>
+               <option>Favourite Anime</option>
+               <option>Favourite Color</option>
+            </select>
+             @Html.ValidationMessageFor(model => model.SQues)
+
+            <h5>Give Secret Answer</h5>
+            @Html.TextBoxFor(model => model.SAns)
+            @Html.ValidationMessageFor(model => model.SAns)
+
+            Upload Image: <input type="file" name="image" id ="f1" />
+            @Html.ValidationMessageFor(model => model.filePath)
+        </div>
+
+      <div class="clear"></div>
+        <input class="submit" type="submit" name="submit" id="submit" value="REGISTER" />
+            <a class="more"  href="~/Home/login">Login</a>
+      
+      <div class="clear"></div>
+    </fieldset>
+  }
+       
+ 
+				</div>
+			</div>
+</div>

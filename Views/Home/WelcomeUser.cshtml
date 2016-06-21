@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "WelcomeUser";
+}
+@{ var session = HttpContext.Current.Session; }
+
+<html>
+    <body>
+      <div id="page">
+<div id="body" class="iq">
+			<div class="header">
+		 <div>
+					<h1>WELCOME !!!</h1>
+					<ul>
+                       
+                        <li>
+                            <p><b>WELCOME @session["First Name"]  @session["Last Name"] !</b></p>
+							<div>
+								    
+							 <a href=""><img src="~/UserFiles/@session["ImagePath"]" alt=""></a>
+							 
+                            
+							 </div>
+						</li>
+
+				    </ul>
+			</div>
+
+
+			</div>
+_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+            <div class="footer">
+				<div>
+					<ul>
+						<li>
+							<h1>CONTACT US</h1>
+							<img src="~/images/contactus.jpg" alt="">
+						</li>
+						<li>
+							<h1>WAY TO GO</h1>
+							<ul>
+								<li>
+									<a href=""><img src="~/images/SIGNUP.jpg" alt=""></a>
+									<h1>SIGN UP HERE</h1>
+									<span>JUST ONE THIBG TO GO ON AHEAD</span>
+									<a href="~/Home/signup" class="more">SIGN UP</a>
+								</li>
+								<li>
+									<a href="#"><img src="~/images/fun.png" alt=""></a>
+									<h1>HVE FUN WITH US</h1>
+									<span>^_^</span>
+									
+									
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+         </div>
+    </div>
+          </div>
+        </body>
+</html>

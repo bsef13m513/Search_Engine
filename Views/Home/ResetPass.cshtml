@@ -1,0 +1,35 @@
+﻿@model Quizely.Models.User
+@{
+    ViewBag.Title = "ResetPass";
+}
+
+
+<div id="body" class ="rpass">
+			<div class="header">
+				<div class="contact">
+           
+                    <h1>Reset Password</h1>
+
+              @using (Html.BeginForm("ChangePass", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+              { 
+                 <fieldset>
+                 <div class="form">
+                 <h5>ENTER USER NAME</h5>    
+            @Html.HiddenFor(model => model.UserName, new { type = "text", @placeholder = "USER NAME", @class = "form-control", color = "black" })
+              
+                 <h5>ENTER NEW PASSWORD</h5>
+                @Html.TextBoxFor(model => model.Password, new { type = "password", @class = "form-control", @required = "required", @pattern = ".{6,}" ,color ="black"})
+                 
+           
+                    <input type="submit" value="RESET" id="submit" />
+             </div>
+         </fieldset>
+                    
+            }
+                    
+						
+					
+				</div>
+			</div>
+</div>
+        

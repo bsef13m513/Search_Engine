@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "GameResult";
+}
+@model Quizely.Models.GameResult
+@{ var session = HttpContext.Current.Session; }
+ 
+<html>
+<body>
+<div id="body" >
+			<div class="header">
+				<div>
+                    <h1><b>@session["First Name"] </b>YOU GOT A SCORE OF @ViewBag.Res</h1>
+                    @if(ViewBag.Res <= 40){
+                    
+                    <p><b>LOW. </b></p>
+                    <p> You need to focus on your abilities.</p>
+                    <a href=""><img src="~/images/sad.jpg" alt=""></a>
+                    }
+                    else if(ViewBag.Res > 40 && ViewBag.Res <= 80){
+                    <p> <b>MEDIUM. </b></p>
+                        <p> You can improve yourself by a litlle more hardwork on it.</p>
+                        <a href=""><img src="~/images/smile.jpg" alt=""></a>
+                    }
+                    else {
+                    
+                    <p><b>HIGH. </b></p>
+                        <p>You got a very good score. Keep it up.</p>
+                         <a href=""><img src="~/images/excited.jpg" alt=""></a>
+                    }
+                    
+
+
+                </div>
+                </div>
+    </div>
+    </body>
+    </html>

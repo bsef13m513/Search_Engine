@@ -1,0 +1,46 @@
+﻿@model List<Quizely.Models.Question>
+@{
+    ViewBag.Title = "LoadGamePage";
+}
+
+<html>
+<body>
+<div id="body" >
+			<div class="header">
+				<div>
+					<h1>QUIZ</h1>
+					<ul>
+                         @{
+                           
+                             string s = null; 
+                           foreach(var v in Model)
+                           {
+                               
+							 <li>  
+                              <div>
+								  
+								    <p>Q: @v.Question1</p>
+                                    <input type ="radio" name="@v.op1" value="@v.op1" id ="1" /><b> @v.op1</b><br />
+                                    <input type ="radio" name="@v.op1" value="@v.op2" id ="2"/> <b> @v.op2</b> <br />
+                                    <input type ="radio" name="@v.op1" value="@v.op3" id ="3"/> <b> @v.op3</b> 
+                                    
+								   
+							    </div>
+						       
+						       </li>
+                               }
+                           }
+                        
+
+						
+					</ul>
+                         <a href="~/Home/GameResult/@s" class="more">SUBMIT</a>
+				</div>
+               
+
+
+			</div>
+ </div>
+
+        </body>
+</html>
